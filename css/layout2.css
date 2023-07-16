@@ -1,0 +1,247 @@
+body {
+	min-height: 100vh;
+}
+iframe {
+	display: block;
+}
+:root {
+	--main-gap: 36px;
+	--main-header: 60px;
+	--side-header: 140px;
+}@media screen and (min-width: 1600px) {
+:root {
+	--main-gap: 36px;
+}}@media screen and (max-width: 767.98px) {
+:root {
+	--main-gap: 16px;
+}}
+
+/* Pre css */
+.flex {
+	display: flex;
+	align-items: center;
+}
+.sidebar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 240px;
+	z-index: 99;
+}
+.sidebar.close {
+	width: calc(55px + 20px);
+  }
+#sidebar-close {
+	display: none;
+}
+.sidebar.locked ~ .main-content {
+	left: 240px;
+	width: calc(100% - 240px);
+}
+.menu_container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin-top: 24px;
+	overflow-y: auto;
+	height: calc(100% - 82px);
+}
+.menu_container::-webkit-scrollbar {
+	display: none;
+}
+.navbar {
+	display: none;
+}
+
+#sidebar-open {
+	margin-right: 20px;
+	display: none;
+}
+
+/* Main Content */
+
+.overview #primary-frame,
+.overview .secondary,
+
+.overview #month #overview-week,
+.overview #month #overview-day,
+
+.overview #week #overview-month,
+.overview #week #overview-day,
+
+.overview #events #overview-month,
+.overview #events #overview-week,
+
+.personnel .overview-frame{
+	display: none;
+}
+
+.main-content{
+	position: relative;
+	min-height: 100vh;
+	top: 0;
+	left: 75px;
+	width: calc(100% - 75px);
+	overflow: hidden;
+}
+.main-container{
+	padding: 0 2rem;
+}
+/* content header */
+.primary .header,
+.primary .overview-header {
+	height: 4rem;
+	border-bottom: 1px solid rgba(255, 255, 255, 0.644);
+    margin: 0 7px 0 5px;
+}
+
+.overview .primary-content{
+	display: flex;
+	padding-top: 2rem;
+	gap: calc( 2rem / 2 );
+}
+.overview iframe{
+	margin: calc( 2rem / 2 ) 0 calc( 2rem );
+    height: calc( 100vh - 4rem );
+}
+
+.personnel .primary-content{
+	padding-top: calc( 2rem + ( 2rem / 3 ) );
+}
+
+.personnel .main-container{
+	display: flex;
+	flex-direction: row-reverse;
+	/* gap: calc( 2rem / 3 ); */
+}
+.personnel .primary,
+.personnel .secondary{
+	padding: calc( 2rem / 2 ) calc( 2rem / 2 ) 0;
+}
+.personnel .resizer {
+	background-color: var(--main-color);
+	cursor: ew-resize;
+	height: 100%;
+	width: 6px;
+}
+
+.personnel .secondary{
+	flex: 1;
+}
+
+.secondary .header {
+	height: 8rem;
+}
+.secondary .header .nav_image img{
+	width: 60px;
+	height: 60px;
+}
+
+.personnel .primary iframe{
+    height: calc( 100vh - 2rem - 2rem - calc( 2rem / 2 ) );
+}
+.personnel .secondary iframe{
+    height: calc( 100vh - 4rem );
+}
+
+@media screen and (min-width: 1200px) {
+	.personnel .primary{
+		width: calc( 100% - 420px );
+	}
+}
+@media screen and (max-width: 1199.98px) {
+	.navbar {
+		left: 65%;
+	}
+	.personnel .primary{
+		width: 65%;
+	}
+	.header-title{
+		font-size: 18px;
+	}
+	.email{
+		font-size: 14px;
+	}
+}
+@media screen and (max-width: 991.98px) {
+	.main-container{
+		padding-bottom: 2rem;
+	}
+	.primary iframe{
+		width: calc( 100vw - ( 2rem * 5.5 ) );
+	}
+	.overview .primary iframe{
+		width: 100%;
+	}
+	.overview .primary-content{
+		flex-direction: column;
+	}
+	.personnel .main-container{
+		flex-direction: column-reverse;
+	}
+}
+@media screen and (min-width: 992px) {
+	.overview .main-container{
+		overflow-x: scroll;
+	}
+	.overview-item:last-child {
+		padding-right: 2rem;
+	}
+	.overview iframe{
+		width: calc( 100vw / 2.8 );
+	}
+}
+@media screen and (max-width: 767.98px) {
+	.sidebar {
+	  left: 0;
+	  z-index: 1000;
+	}
+	.sidebar.close {
+	  left: -100%;
+	}
+	#sidebar-close {
+	  display: block;
+	}
+	#sidebar-open {
+	  display: inline-block;
+	  margin-right: 0;
+	}
+	#lock-icon {
+	  display: none;
+	}
+	.navbar {
+		background-color: #fff;
+		display: flex;
+		width: 100%;
+		max-width: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		padding: 10px 20px;
+		z-index: 999;
+		transform: translateX(0%);
+	}
+	.main-content{
+		padding-top: 4rem;
+		padding-bottom: 2rem;
+	}
+	.main-content{
+		top: 36px;
+		left: 0;
+		width: 100%;
+	}
+	.main-container{
+		flex-direction: column-reverse;
+	}
+	.primary{
+		width: 100%;
+	}
+	.primary iframe{
+		width: calc( 100vw - ( 2rem * 4) );
+	}
+	.secondary .header{
+		display: none;
+	}
+  }
+  

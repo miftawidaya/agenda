@@ -1,0 +1,303 @@
+/* Import Google font - Poppins */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+:root{
+  --main-color : #4070f4;
+  --accent-color : #6688ee;
+  --dark-color-1 : #20c;
+  --dark-color-2 : #2952A3;
+  
+  --light-color-1: #fff;
+  --light-color-2: #e3e9ff;
+  --value-color-1: #333;
+  --value-color-2: #777;
+  --value-color-3: #aaa;
+  --value-color-4: #ccc;
+  --value-color-5: #e6e6e6;
+}
+
+a.email {
+  color:var(--value-color-2);
+  text-decoration: none;
+}
+a.email:hover {
+  color: var(--main-color);
+  text-decoration: underline;
+}
+.blinking{
+	background:url(../assets/ui/loader.gif) center center no-repeat;
+  animation: blink 1.9s ease infinite;
+}
+@keyframes blink {
+  0% {
+    background-color: rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+  100% {
+    background-color: rgba(255, 255, 255, 0);
+  }
+}
+.fadeIn {
+  animation: fadein 1s ease-in-out;
+  animation-fill-mode: forwards;
+}
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.nav_image {
+  height: 50px;
+  display: flex;
+  min-width: 55px;
+  justify-content: center;
+  align-items: center;
+}
+.menu_item .nav_image{
+  margin-right: 5px;
+}
+.nav_image img {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+/* Sidebar */
+.sidebar {
+  background: #fff;
+  padding: 15px 0 0;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.1);
+  transition: all 0.4s ease;
+}
+.logo_items {
+  padding: 0 10px;
+  gap: 8px;
+  justify-content: space-between;
+}
+.logo_items a{
+  gap: 5px;
+  text-decoration: none;
+}
+.logo_name {
+  flex: 1;
+  font-size: 24px;
+  color: var(--value-color-1);
+  font-weight: 700;
+  transition: all 0.3s ease;
+}
+.sidebar.close .logo_name,
+.sidebar.close #lock-icon,
+.sidebar.close #sidebar-close {
+  opacity: 0;
+  pointer-events: none;
+}
+#lock-icon,
+#sidebar-close {
+  padding: 10px;
+  color: var(--value-color-2);
+  font-size: 26px;
+  cursor: pointer;
+  margin-left: -4px;
+}
+#sidebar-close {
+  color: var(--value-color-1);
+}
+.bx-pin#lock-icon {
+  font-size: 20px;
+  margin-top: 4px;
+}
+.locked #lock-icon {
+  color:var(--main-color);
+}
+
+/* custom scrollbar */
+.menu_items{
+  padding-left: 10px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: transparent;
+}
+.sidebar:not(.close) .menu_items {
+  padding-right: 0;
+}
+.sidebar.close {
+  padding-right: 10px;
+}
+:where(.menu_items)::-webkit-scrollbar {
+  width: 0;
+  background-color: transparent;
+}
+:where(.open .menu_items)::-webkit-scrollbar {
+  width: 16px;
+  background-color: transparent;
+}
+:where(.menu_items)::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+:where(.menu_items)::-webkit-scrollbar-thumb {
+  border: 6px solid #fff;
+  background-clip: padding-box;
+  background-color: transparent;
+  border-radius: 16px;
+  transition: all 0.4s ease;
+}
+:where(.open .menu_items):hover::-webkit-scrollbar-thumb {
+  background-color: rgba(212, 223, 226, 0.5);
+}
+:where(.open .menu_items):hover::-webkit-scrollbar-thumb:hover {
+  background: rgb(168, 168, 168);
+  border: 3px solid #fff;
+}
+:where(.open .menu_items):hover::-webkit-scrollbar-thumb :active {
+  background: rgb(120, 120, 120);
+}
+
+/* custom */
+:where(.main-container)::-webkit-scrollbar {
+  width: 24px;
+  height: 24px;
+}
+:where(.main-container)::-webkit-scrollbar-button {
+  width: 42px;
+  height: 24px;
+}
+:where(.main-container)::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border: 3px solid #f9faff;
+  border-radius: 50px;
+}
+:where(.main-container)::-webkit-scrollbar-thumb:hover {
+  background: rgb(168, 168, 168);
+}
+:where(.main-container)::-webkit-scrollbar-thumb:active {
+  background: rgb(120, 120, 120);
+}
+:where(.main-container)::-webkit-scrollbar-track {
+  background: #f9faff;
+  border-radius: 50px;
+}
+:where(.main-container)::-webkit-scrollbar-track:hover {
+  background: #fff;
+}
+:where(.main-container)::-webkit-scrollbar-track:active {
+  background: #fff;
+}
+:where(.main-container)::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+.menu_title {
+  position: relative;
+  height: 50px;
+  width: 55px;
+}
+.menu_title .title {
+  margin-left: 15px;
+  transition: all 0.3s ease;
+}
+.sidebar.close .title {
+  opacity: 0;
+}
+.menu_title .line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 3px;
+  width: 20px;
+  border-radius: 25px;
+  background: var(--value-color-3);
+  transition: all 0.3s ease;
+}
+.menu_title .line {
+  opacity: 0;
+}
+.sidebar.close .line {
+  opacity: 1;
+}
+.item {
+  list-style: none;
+}
+.item.active .link{
+  color: var(--main-color);
+}
+.link {
+  text-decoration: none;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  color: var(--value-color-2);
+}
+.link:hover,
+.item.active .link:hover{
+  color: #fff;
+  background-color: var(--main-color);
+}
+.link:hover,
+.item.active .link:hover{
+  color: #fff;
+  background-color: var(--main-color);
+}
+.link span {
+  white-space: nowrap;
+}
+.link i {
+  height: 50px;
+  min-width: 55px;
+  display: flex;
+  font-size: 22px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+}
+.item.active .nav_image img{
+  border: 2px solid var(--light-color-1);
+  outline: 2px solid var(--main-color);
+}
+.item.active .link:hover .nav_image img{
+  border: 2px solid var(--main-color);
+  outline: 2px solid var(--light-color-1);
+}
+
+/* Navbar */
+
+#sidebar-open {
+  font-size: 30px;
+  color: var(--value-color-1);
+  cursor: pointer;
+}
+.main-content{
+	transition: all 0.5s ease;
+	background: #e3e9ff;
+}
+
+.header{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+}
+.secondary .header .user-info{
+	border-left: 1px solid var(--value-color-3);
+    padding-left: 20px;
+}
+.secondary .header-container {
+	gap: 15px;
+}
+.secondary .header .nav_image img{
+  outline: 1px solid var(--value-color-5);
+}
+
+

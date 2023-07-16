@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Root</title>
+	<link rel="stylesheet" href="style.min.css">
+</head>
+<body class="mode">
+	<noscript>You need to enable JavaScript to run this app.</noscript>
+	<header>
+		<h3>Google Calender</h3>
+		<button>today</button>
+		<button class="arrow">&#x25C0;</button>
+		<button class="arrow">&#9654;</button>
+	</header>
+	<main>
+		<div id="calendar">
+			<p id="wkst"></p>
+			<p id="bgcolor"></p>
+			<p id="ctz"></p>
+			<p id="showTitle"></p>
+			<p id="showNav"></p>
+			<p id="showCalendars"></p>
+		</div>
+		<div class="overlayInfo">
+			<div class="minimizeQuery"><button id="hideQuery">Hide</button></div>
+			<div id="queryList"></div>
+		</div>
+		<div id="month">
+			<iframe src="month/index.html" frameborder="0"></iframe>
+		</div>
+		<div id="week">
+			<iframe src="week/index.html" frameborder="0"></iframe>
+		</div>
+		<div id="agenda">
+			<iframe src="agenda/index.html" frameborder="0"></iframe>
+		</div>
+		<div id="calendarTable"></div>
+	</main>
+	<script src="query.js"></script>
+	<script src="script.min.js"></script>
+</body>
+</html>
